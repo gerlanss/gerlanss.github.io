@@ -193,36 +193,20 @@
             background-color: #219150;
         }
 
-        /* Formulário */
-        form {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        form label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        form input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-        }
-
-        form button {
-            width: 100%;
-            padding: 15px;
-            background-color: #27ae60;
+        /* Botão WhatsApp */
+        .btn-whatsapp {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #25D366;
             color: #fff;
-            border: none;
+            text-decoration: none;
             font-size: 18px;
             border-radius: 5px;
+            text-align: center;
         }
 
-        form button:hover {
-            background-color: #219150;
+        .btn-whatsapp:hover {
+            background-color: #1DA851;
         }
 
         /* Rodapé */
@@ -304,21 +288,21 @@
         <h2>Escolha o Seu Kit e Comece Hoje Mesmo!</h2>
         <div class="products">
             <div class="product">
-                <img src="images/kit1.jpg" alt="Kit 1">
+                <img src="images/kit1.jpg" alt="Kit Iniciante">
                 <h3>Kit Iniciante</h3>
                 <p>1 Pote de OzenFit Caps</p>
                 <p class="price">R$ 99,90</p>
                 <a href="comprar.html" class="btn">Comprar Agora</a>
             </div>
             <div class="product">
-                <img src="images/kit2.jpg" alt="Kit 2">
+                <img src="images/kit2.jpg" alt="Kit Intermediário">
                 <h3>Kit Intermediário</h3>
                 <p>2 Potes + 1 Grátis</p>
                 <p class="price">R$ 199,90</p>
                 <a href="comprar.html" class="btn">Comprar Agora</a>
             </div>
             <div class="product">
-                <img src="images/kit3.jpg" alt="Kit 3">
+                <img src="images/kit3.jpg" alt="Kit Avançado">
                 <h3>Kit Avançado</h3>
                 <p>3 Potes + 2 Grátis</p>
                 <p class="price">R$ 299,90</p>
@@ -360,16 +344,10 @@
         <img src="images/garantia.jpg" alt="Garantia" style="display:block; margin: 0 auto; max-width: 200px;">
     </section>
 
-    <section id="ebook">
-        <h2>Cadastre-se e Receba um E-book Grátis!</h2>
-        <p>Quer saber mais dicas para emagrecer com saúde? Cadastre seu e-mail e receba nosso e-book exclusivo <em>"Entendendo os Fundamentos da Perda de Peso"</em>.</p>
-        <form action="#" method="POST">
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required>
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" required>
-            <button type="submit">Cadastre-se Agora</button>
-        </form>
+    <section id="contato">
+        <h2>Tem Dúvidas? Fale Conosco pelo WhatsApp!</h2>
+        <p>Nossa equipe está pronta para ajudá-lo. Clique no botão abaixo para iniciar uma conversa.</p>
+        <a href="https://wa.me/SEU_NUMERO_DE_TELEFONE" class="btn-whatsapp">Fale Conosco no WhatsApp</a>
     </section>
 
     <!-- Rodapé com informações adicionais -->
