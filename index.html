@@ -43,11 +43,12 @@
             font-size: 18px;
             border-radius: 5px;
             text-align: center;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
             margin: 10px 0;
         }
         .btn:hover {
             background-color: var(--secondary-color);
+            transform: scale(1.05);
         }
         header {
             background-image: url('images/header-bg.jpg');
@@ -167,6 +168,83 @@
             text-align: center;
             padding: 30px 20px;
         }
+        .progress-container {
+            position: fixed;
+            top: 0;
+            z-index: 1;
+            width: 100%;
+            height: 4px;
+            background: #ccc;
+        }
+        .progress-bar {
+            height: 4px;
+            background: var(--primary-color);
+            width: 0%;
+        }
+        .faq-item {
+            margin-bottom: 15px;
+        }
+        .faq-question {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .faq-answer {
+            display: none;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border-radius: 0 0 5px 5px;
+        }
+        .imc-calculator {
+            background-color: #f1f1f1;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .imc-calculator input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        #imc-result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .normal-imc {
+            background-color: #2ecc71;
+            color: white;
+            animation: pulse 1.5s infinite;
+        }
+        .warning-imc {
+            background-color: #e74c3c;
+            color: white;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .units-sold {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--secondary-color);
+            text-align: center;
+            margin: 20px 0;
+        }
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .trust-badges img {
+            max-width: 80px;
+            margin: 10px;
+        }
         @media (max-width: 768px) {
             header h1 {
                 font-size: 36px;
@@ -196,6 +274,10 @@
     </style>
 </head>
 <body>
+    <div class="progress-container">
+        <div class="progress-bar" id="myBar"></div>
+    </div>
+
     <header>
         <h1>Transforme Seu Corpo em Apenas 30 Dias com OzenFit Caps!</h1>
         <p>Descubra o Segredo dos Famosos para Emagrecer <span class="highlight">Até 10kg em 1 Mês</span> - 100% Natural e Sem Efeitos Colaterais!</p>
@@ -220,7 +302,6 @@
         <p><strong>E o melhor:</strong> Tudo isso sem precisar passar horas na academia ou seguir dietas malucas!</p>
         <a href="#produtos" class="btn">QUERO ESSES BENEFÍCIOS AGORA!</a>
     </section>
-
     <section id="como-funciona" class="fade-in">
         <h2>Como OzenFit Caps Transforma Seu Corpo</h2>
         <div class="timeline">
@@ -291,6 +372,42 @@
         <img src="images/quality-seal.png" alt="Selo de Qualidade" style="display:block; margin: 20px auto; max-width: 150px;">
     </section>
 
+    <section id="faq" class="fade-in">
+        <h2>Perguntas Frequentes</h2>
+        <div class="faq-item">
+            <div class="faq-question">Como devo tomar OzenFit Caps?</div>
+            <div class="faq-answer">Recomenda-se tomar 2 cápsulas por dia, preferencialmente antes das principais refeições, com um copo de água.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">OzenFit Caps tem efeitos colaterais?</div>
+            <div class="faq-answer">OzenFit Caps é feito com ingredientes naturais e geralmente é bem tolerado. No entanto, como com qualquer suplemento, recomenda-se consultar um médico antes de iniciar o uso.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Quanto tempo leva para ver resultados?</div>
+            <div class="faq-answer">Muitos usuários relatam ver resultados iniciais em 2-4 semanas, mas os resultados podem variar de pessoa para pessoa.</div>
+        </div>
+    </section>
+
+    <section id="imc-calculator" class="fade-in">
+        <h2>Descubra Seu Índice de Massa Corporal (IMC)</h2>
+        <p>O IMC é uma medida que usa sua altura e peso para calcular se seu peso é saudável. É uma ferramenta útil para avaliar se você está no caminho certo para atingir seu peso ideal.</p>
+        <div class="imc-calculator">
+            <input type="number" id="weight" placeholder="Seu peso em kg">
+            <input type="number" id="height" placeholder="Sua altura em centimetros
+            <button class="btn" onclick="calculateIMC()">Calcular IMC</button>
+            <div id="imc-result"></div>
+        </div>
+    </section>
+
+    <div class="units-sold fade-in">
+        Já ajudamos mais de <span id="sold-count">10000</span> pessoas a atingirem seus objetivos!
+    </div>
+
+    <div class="trust-badges fade-in">
+        <img src="/api/placeholder/80/80" alt="Pagamento Seguro">
+        <img src="/api/placeholder/80/80" alt="Entrega Garantida">
+        <img src="/api/placeholder/80/80" alt="Satisfação Garantida">
+    </div>
     <section id="produtos" class="fade-in">
         <h2>Escolha Sua Transformação e Comece Hoje Mesmo!</h2>
         <div class="product">
@@ -399,6 +516,72 @@
                 stickyCta.style.display = 'none';
             }
         });
+
+        // Barra de progresso
+        window.onscroll = function() {myFunction()};
+
+        function myFunction() {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("myBar").style.width = scrolled + "%";
+        }
+
+        // FAQ
+        var acc = document.getElementsByClassName("faq-question");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+
+        // Calculadora de IMC
+        function calculateIMC() {
+            var weight = document.getElementById("weight").value;
+            var height = document.getElementById("height").value / 100; // convertendo cm para m
+            var imc = weight / (height * height);
+            var result = "Seu IMC é: " + imc.toFixed(2) + ". ";
+            var resultDiv = document.getElementById("imc-result");
+            
+            if (imc < 18.5) {
+                result += "Você está abaixo do peso ideal. OzenFit Caps pode ajudar a fornecer nutrientes essenciais enquanto você trabalha para alcançar um peso saudável.";
+                resultDiv.className = "warning-imc";
+            } else if (imc < 25) {
+                result += "Parabéns! Seu peso está normal. OzenFit Caps pode ajudar a manter seu peso ideal e melhorar sua saúde geral.";
+                resultDiv.className = "normal-imc";
+            } else if (imc < 30) {
+                result += "Você está com sobrepeso. É o momento perfeito para começar sua jornada de transformação com OzenFit Caps!";
+                resultDiv.className = "warning-imc";
+            } else {
+                result += "Você está com obesidade. Não perca mais tempo! OzenFit Caps pode ser o impulso que você precisa para iniciar sua jornada de emagrecimento.";
+                resultDiv.className = "warning-imc";
+            }
+
+            resultDiv.innerHTML = result;
+
+            if (imc >= 25) {
+                resultDiv.innerHTML += "<br><br><strong>ATENÇÃO:</strong> Seu IMC indica que você pode se beneficiar significativamente do OzenFit Caps. Não espere mais para começar sua transformação!";
+            }
+        }
+
+        // Contador de unidades vendidas
+        function updateSoldCount() {
+            var count = document.getElementById("sold-count");
+            var current = parseInt(count.innerHTML);
+            if (current < 15000) {
+                count.innerHTML = current + Math.floor(Math.random() * 10);
+            }
+        }
+
+        setInterval(updateSoldCount, 5000);
     </script>
 </body>
 </html>
