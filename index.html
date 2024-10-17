@@ -21,6 +21,7 @@
         h1, h2 {
             color: #2c3e50;
             text-align: center;
+            margin-bottom: 20px;
         }
 
         p {
@@ -29,7 +30,7 @@
         }
 
         section {
-            padding: 60px 20px;
+            padding: 40px 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -42,7 +43,7 @@
             position: relative;
             color: #fff;
             text-align: center;
-            padding: 150px 20px;
+            padding: 100px 20px;
         }
 
         header .overlay {
@@ -55,14 +56,14 @@
         }
 
         header h1 {
-            font-size: 48px;
+            font-size: 36px;
             margin-bottom: 20px;
             position: relative;
             z-index: 1;
         }
 
         header p {
-            font-size: 24px;
+            font-size: 20px;
             position: relative;
             z-index: 1;
         }
@@ -70,11 +71,11 @@
         header .btn {
             display: inline-block;
             margin-top: 30px;
-            padding: 15px 30px;
+            padding: 10px 20px;
             background-color: #e74c3c;
             color: #fff;
             text-decoration: none;
-            font-size: 18px;
+            font-size: 16px;
             border-radius: 5px;
             position: relative;
             z-index: 1;
@@ -97,7 +98,7 @@
         }
 
         #beneficios ul li img, #publico ul li img {
-            width: 40px;
+            width: 30px;
             margin-right: 15px;
         }
 
@@ -109,12 +110,14 @@
             display: flex;
             align-items: center;
             margin-bottom: 40px;
+            flex-direction: column;
+            text-align: center;
         }
 
         .testimonial img {
             border-radius: 50%;
-            width: 100px;
-            margin-right: 20px;
+            width: 80px;
+            margin-bottom: 20px;
         }
 
         .testimonial blockquote {
@@ -122,6 +125,7 @@
             padding: 20px;
             border-radius: 5px;
             position: relative;
+            max-width: 600px;
         }
 
         .testimonial blockquote:before {
@@ -129,7 +133,7 @@
             font-size: 50px;
             position: absolute;
             top: -20px;
-            left: -20px;
+            left: 20px;
             color: #bdc3c7;
         }
 
@@ -142,9 +146,6 @@
 
         /* Produtos */
         .products {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
             margin-top: 40px;
         }
 
@@ -152,10 +153,12 @@
             background: #fff;
             border: 1px solid #ddd;
             border-radius: 5px;
-            margin: 15px;
-            width: 300px;
+            margin: 20px auto;
+            width: 90%;
+            max-width: 400px;
             text-align: center;
             padding: 20px;
+            position: relative;
         }
 
         .product img {
@@ -193,6 +196,13 @@
             background-color: #219150;
         }
 
+        /* Contador */
+        .countdown {
+            font-size: 20px;
+            color: #e74c3c;
+            margin-bottom: 15px;
+        }
+
         /* Botão WhatsApp */
         .btn-whatsapp {
             display: inline-block;
@@ -214,7 +224,7 @@
             background-color: #2c3e50;
             color: #fff;
             text-align: center;
-            padding: 30px 20px;
+            padding: 20px 20px;
         }
 
         footer p {
@@ -224,29 +234,15 @@
         /* Responsividade */
         @media (max-width: 768px) {
             header h1 {
-                font-size: 32px;
+                font-size: 28px;
             }
 
             header p {
-                font-size: 18px;
-            }
-
-            .testimonial {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .testimonial img {
-                margin-bottom: 20px;
-            }
-
-            .products {
-                flex-direction: column;
-                align-items: center;
+                font-size: 16px;
             }
 
             .product {
-                width: 90%;
+                width: 100%;
             }
         }
     </style>
@@ -265,13 +261,7 @@
     <section id="intro">
         <h2>Sua Jornada Começa Agora</h2>
         <p>OzenFit Caps é o suplemento natural que vai te ajudar a emagrecer de forma saudável, sem precisar passar fome ou se submeter a dietas malucas.</p>
-        <img src="images/ozenfit-caps.jpg" alt="OzenFit Caps" style="display:block; margin: 0 auto; max-width: 400px;">
-    </section>
-
-    <section id="ingredientes">
-        <h2>Ingredientes Naturais e Resultados Comprovados</h2>
-        <p>Nossas cápsulas são formuladas com uma mistura poderosa de ingredientes naturais cientificamente comprovados para acelerar o seu metabolismo, reduzir o apetite e fornecer energia extra ao longo do dia.</p>
-        <p>Milhares de pessoas já experimentaram e aprovaram. Chegou a sua vez!</p>
+        <img src="images/ozenfit-caps.jpg" alt="OzenFit Caps" style="display:block; margin: 0 auto; max-width: 300px;">
     </section>
 
     <section id="beneficios">
@@ -286,38 +276,40 @@
 
     <section id="produtos">
         <h2>Escolha o Seu Kit e Comece Hoje Mesmo!</h2>
-        <div class="products">
-            <div class="product">
-                <img src="images/kit1.jpg" alt="Kit Iniciante">
-                <h3>Kit Iniciante</h3>
-                <p>1 Pote de OzenFit Caps</p>
-                <p class="price">R$ 99,90</p>
-                <a href="comprar.html" class="btn">Comprar Agora</a>
-            </div>
-            <div class="product">
-                <img src="images/kit2.jpg" alt="Kit Intermediário">
-                <h3>Kit Intermediário</h3>
-                <p>2 Potes + 1 Grátis</p>
-                <p class="price">R$ 199,90</p>
-                <a href="comprar.html" class="btn">Comprar Agora</a>
-            </div>
-            <div class="product">
-                <img src="images/kit3.jpg" alt="Kit Avançado">
-                <h3>Kit Avançado</h3>
-                <p>3 Potes + 2 Grátis</p>
-                <p class="price">R$ 299,90</p>
-                <a href="comprar.html" class="btn">Comprar Agora</a>
-            </div>
+        <!-- Produto 1 -->
+        <div class="product">
+            <img src="images/kit1.jpg" alt="Kit Iniciante">
+            <h3>Kit Iniciante</h3>
+            <p>1 Pote de OzenFit Caps</p>
+            <p class="price">De <strike>R$199,90</strike> por apenas R$99,90!</p>
+            <div class="countdown" id="countdown1">Oferta termina em: <span id="timer1"></span></div>
+            <a href="comprar.html" class="btn">Comprar Agora</a>
+            <p><em>* Estoque limitado! Garanta o seu agora.</em></p>
         </div>
-    </section>
-
-    <section id="publico">
-        <h2>OzenFit Caps é Para Você Que:</h2>
-        <ul>
-            <li>Já tentou várias dietas sem resultados duradouros.</li>
-            <li>Quer emagrecer sem perder energia e bem-estar.</li>
-            <li>Busca uma solução natural e sem efeitos colaterais.</li>
-        </ul>
+        <!-- Texto Persuasivo -->
+        <p style="text-align: center; font-size: 18px;"><strong>Não perca tempo! Comece sua transformação hoje mesmo.</strong></p>
+        <!-- Produto 2 -->
+        <div class="product">
+            <img src="images/kit2.jpg" alt="Kit Intermediário">
+            <h3>Kit Intermediário</h3>
+            <p>2 Potes + 1 Grátis</p>
+            <p class="price">De <strike>R$399,90</strike> por apenas R$199,90!</p>
+            <div class="countdown" id="countdown2">Oferta termina em: <span id="timer2"></span></div>
+            <a href="comprar.html" class="btn">Comprar Agora</a>
+            <p><em>* Oferta mais popular! Resultados ainda melhores.</em></p>
+        </div>
+        <!-- Texto Persuasivo -->
+        <p style="text-align: center; font-size: 18px;"><strong>Aproveite o melhor custo-benefício e potencialize seus resultados!</strong></p>
+        <!-- Produto 3 -->
+        <div class="product">
+            <img src="images/kit3.jpg" alt="Kit Avançado">
+            <h3>Kit Avançado</h3>
+            <p>3 Potes + 2 Grátis</p>
+            <p class="price">De <strike>R$599,90</strike> por apenas R$299,90!</p>
+            <div class="countdown" id="countdown3">Oferta termina em: <span id="timer3"></span></div>
+            <a href="comprar.html" class="btn">Comprar Agora</a>
+            <p><em>* Melhor opção! Máximos resultados e economia.</em></p>
+        </div>
     </section>
 
     <section id="depoimentos">
@@ -341,7 +333,7 @@
     <section id="garantia">
         <h2>Satisfação Garantida ou Seu Dinheiro de Volta</h2>
         <p>Confiamos tanto na eficácia de OzenFit Caps que oferecemos uma garantia incondicional de 30 dias. Se você não estiver satisfeito com os resultados, devolvemos seu dinheiro!</p>
-        <img src="images/garantia.jpg" alt="Garantia" style="display:block; margin: 0 auto; max-width: 200px;">
+        <img src="images/garantia.jpg" alt="Garantia" style="display:block; margin: 0 auto; max-width: 150px;">
     </section>
 
     <section id="contato">
@@ -358,6 +350,40 @@
 
     <!-- Scripts JavaScript -->
     <script>
+        // Função de contagem regressiva
+        function initializeCountdown(id, endtime) {
+            var timer = document.getElementById(id);
+            function updateClock() {
+                var t = getTimeRemaining(endtime);
+                timer.innerHTML = t.days + 'd ' + t.hours + 'h ' + t.minutes + 'm ' + t.seconds + 's';
+                if (t.total <= 0) {
+                    clearInterval(timeinterval);
+                    timer.innerHTML = 'Oferta Expirada';
+                }
+            }
+            updateClock();
+            var timeinterval = setInterval(updateClock, 1000);
+        }
+
+        function getTimeRemaining(endtime) {
+            var t = Date.parse(endtime) - Date.parse(new Date());
+            return {
+                'total': t,
+                'days': Math.floor(t / (1000 * 60 * 60 * 24)),
+                'hours': Math.floor((t / (1000 * 60 * 60)) % 24),
+                'minutes': Math.floor((t / 1000 / 60) % 60),
+                'seconds': Math.floor((t / 1000) % 60)
+            };
+        }
+
+        // Defina a data de término da oferta
+        var deadline = new Date(Date.parse(new Date()) + 24 * 60 * 60 * 1000); // 24 horas a partir de agora
+
+        // Inicialize os contadores
+        initializeCountdown('timer1', deadline);
+        initializeCountdown('timer2', deadline);
+        initializeCountdown('timer3', deadline);
+
         // Rolagem suave para os links âncora
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
